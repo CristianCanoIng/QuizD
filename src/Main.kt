@@ -97,8 +97,8 @@ fun main() {
                 if (listaProductos.isEmpty()) {
                     println("No hay productos para calcular inventario.")
                 } else {
-                    println("----- Valor total en inventario -----")
-                    listaProductos.forEach { it.calValInven() }
+                    val totalInventario = listaProductos.sumOf { it.calValInven() }
+                    println("Valor total en inventario: $totalInventario")
                 }
             }
             8 -> {
