@@ -27,19 +27,31 @@ fun main() {
                 println("[] ¿Cuantos productos desea ingresar?:")
                 var n = readln().toInt()
 
-                for (i in 1..n) {
-                    println("+ Ingrese el codigo del producto:")
-                    var codigo = readln()
-                    println("+ Ingrese el nombre del producto:")
-                    var nombre = readln()
-                    println("+ Ingrese el precio del producto:")
-                    var precio = readln().toDouble()
-                    println("+ Ingrese la cantidad en stock:")
-                    var stock = readln().toInt()
-                    var producto = Producto(codigo, nombre, precio, stock)
-                    listaProductos.add(producto)
-                    println("Producto creado: $producto")
-                }
+                do {
+                    var seguir : String = "false"
+                    for (i in 1..n) {
+                        println("+ Ingrese el codigo del producto:")
+                        var codigo = readln()
+                        println("+ Ingrese el nombre del producto:")
+                        var nombre = readln()
+                        println("+ Ingrese el precio del producto:")
+                        var precio = readln().toDouble()
+                        println("+ Ingrese la cantidad en stock:")
+                        var stock = readln().toInt()
+                        var producto = Producto(codigo, nombre, precio, stock)
+                        listaProductos.add(producto)
+                        println("Producto creado: $producto")
+
+                        println("¿Desea agregar otro producto? true/false: ")
+                        seguir = readln()
+
+                        if(seguir=="false"){
+                            break
+                        }else{
+                            seguir = "true"
+                        }
+                    }
+                }while(seguir == "true")
             }
             2 -> {
                 println("[] Ingrese el codigo del producto a vender:")
